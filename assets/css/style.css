@@ -1,0 +1,114 @@
+
+
+.head-img img {
+	width: 100% ;
+	height: 300px;
+	margin: 0 auto;
+}
+
+.start {
+	font-size: 30px;
+	margin: 10px 0px 10px 0px;
+	padding: 20px 0 20px 0;
+	text-align: center;
+	background-color: #f7d62c;
+
+}
+
+.start h1 {
+	border-bottom: 1px solid #cccccc;
+	width: 600px;
+	padding-bottom: 10px;
+	display: inline-block;
+
+	
+}
+
+.main-section-left {
+	background-color: #c3bba4;
+	height: 500px;
+	margin-right: 10px;
+}
+
+.main-section-right {
+	background-color: #9aa467 ;
+	height: 500px;
+	margin-left: 10px;
+	position: relative;
+	border: 3px solid #cccccc;
+}
+
+.wins {
+	position: absolute;
+	left: 20%;
+	top: 8%;
+	font-size: 20px;
+}
+
+.currentWord {
+	position: absolute;
+	left: 20%;
+	top: 25%;
+	font-size: 20px;
+}
+
+#wordSpace {
+	position: absolute;
+	left: 20%;
+	top: 45%;
+	font-size: 20px;
+}
+
+.guess {
+	position: absolute;
+	left: 20%;
+	top: 65%;
+	font-size: 20px;
+}
+
+.letters-guessed {
+	position: absolute;
+	left: 20%;
+	top: 80%;
+	font-size: 20px;
+}
+
+
+.tech-used {
+	margin-top: 10px;
+	height: 100%;
+	border: 2px solid #cccccc;
+	text-align: center;
+	background-color: #e9f4fa;
+}
+
+.tech-used h1 {
+	margin-top: 10px;
+	font-size: 25px;
+}
+
+.tech-used figure {
+	width: 180px;
+	display: inline-block;
+	margin-top: 25px;
+}
+
+.tech-used img {
+	width: 200px;
+	
+}
+
+.footer{
+	width: 100%;
+	float:left; 
+	background:#333; 
+	height: 100px;
+	color: white;
+	text-align: center;
+}
+
+.footer p {
+	padding: 40px 0 0 0;
+}
+
+
