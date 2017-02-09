@@ -14,6 +14,7 @@ var randomWord = wordsArray[Math.floor(Math.random() * wordsArray.length)];
 console.log(randomWord);
 var answerArray=[];
 
+/*This resets the game*/
 var reset = function() {
 	guessesLeft = 10;
 	previousGuesses = [];
@@ -32,37 +33,37 @@ var reset = function() {
 	if (randomWord == "halo") {
 	haloAudio.play(haloAudio);
 	console.log("halo audio should be running");
-} else { haloAudio.pause(haloAudio);
-}
+	} else { haloAudio.pause(haloAudio);
+	}
 
-if (randomWord == "darksouls") {
-	soulsAudio.play(soulsAudio);
-	console.log("souls audio should be running");
-} else { soulsAudio.pause(soulsAudio);
-}
+	if (randomWord == "darksouls") {
+		soulsAudio.play(soulsAudio);
+		console.log("souls audio should be running");
+	} else { soulsAudio.pause(soulsAudio);
+	}
 
-if (randomWord == "dishonored") {
-	dishonoredAudio.play(dishonoredAudio);
-	console.log("Dishonored audio should be running");
-} else { dishonoredAudio.pause(dishonoredAudio);
-}
+	if (randomWord == "dishonored") {
+		dishonoredAudio.play(dishonoredAudio);
+		console.log("Dishonored audio should be running");
+	} else { dishonoredAudio.pause(dishonoredAudio);
+	}
 
-if (randomWord == "warcraft") {
-	warcraftAudio.play(warcraftAudio);
-	console.log("warcraft audio should be running");
-} else { warcraftAudio.pause(warcraftAudio);
-}
+	if (randomWord == "warcraft") {
+		warcraftAudio.play(warcraftAudio);
+		console.log("warcraft audio should be running");
+	} else { warcraftAudio.pause(warcraftAudio);
+	}
 
-if (randomWord == "finalfantasyseven") {
-	ff7Audio.play(ff7Audio);
-	console.log("ff7 audio should be running");
-} else { ff7Audio.pause(ff7Audio)
-}
+	if (randomWord == "finalfantasyseven") {
+		ff7Audio.play(ff7Audio);
+		console.log("ff7 audio should be running");
+	} else { ff7Audio.pause(ff7Audio)
+	}
 
 
 	
 }
-
+/*end of reset*/
 
 
 document.getElementById("guess-Remaining").innerHTML = "Guesses Remaining: " + guessesLeft;
@@ -121,13 +122,12 @@ outside of the if statement so that the loops still work.*/
         goodGuess = false;
 
 
-
 /*Just some fun interactions for the user while playing*/
 
-         if(wins == 4){
+         if(wins === 4){
             alert("You're a Gaming Legend!");
           }
-          if(losses == 4){
+          if(losses === 4){
             alert("YOU LOSE");
           }
 /*end of interactions*/
