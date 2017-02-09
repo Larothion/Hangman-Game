@@ -3,12 +3,57 @@
 <head>
    <title>Hangman</title>
    <meta charset="UTF-8">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link type="text/css" rel="stylesheet" href="assets/CSS/reset.css">
+	<link type="text/css" rel="stylesheet" href="assets/CSS/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
  
 </head>
 <body>
-<p id="wordSpace"> </p>
-<p id="guess-Remaining"> </p>
- <p id="winCounter"> </p>
+<div class="row">
+<h1 class="col-lg-12"> Hangman Game: Video Game Edition</h1>
+</div>
+<div class="row">
+	<div class="col-lg-2">
+	<!-- intentionally left blank -->
+	</div>
+	<div class=" col-lg-3 main-img-left">
+		<img src="http://media.istockphoto.com/vectors/hangmans-noose-at-sunset-vector-id165818677?k=6&m=165818677&s=170667a&w=0&h=pkkcPHkdEO1KfPQGcy0zNsGfds3ryjksenBQRsk74-o="/>
+	</div>
+	<div class="col-lg-1">
+	<!-- intentionally left blank -->
+	</div>
+	<div class=" col-lg-5 main-img-right">
+		<img src="http://pre07.deviantart.net/53f1/th/pre/f/2013/258/f/7/i_m_a_gamer_mmo_edition_by_suzuka12345-d6me027.jpg"/>
+	</div>
+	<div class="col-lg-1">
+	<!-- intentionally left blank -->
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-2">
+	<!-- intentionally left blank -->
+	</div>
+	<div class="col-lg-3 game-content">
+		<p id="winCounter"> </p><br>
+		<p id="lossCounter"> </p><br>
+		<p id="wordSpace"> </p><br>
+		<p id="guess-Remaining"> </p><br>
+		<p id="guessDisplay"> </p><br>
+	</div>
+	<div class="col-lg-2 winText">
+		<p id="nice"></p>
+		<p id="again"></p>
+	</div>
+	<div class="col-lg-2">
+		<p class="audio-hint"> Hint: The current audio is a clue!</p>
+	</div>
+	<div class="col-lg-3">
+	<!-- intentionally left blank -->
+	</div>
+</div>
+	<button type="button" id="playAgain">Play Again</button>
+</div>
  
 <script src="assets/javascript/game.js"> </script>
  

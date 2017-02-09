@@ -1,17 +1,74 @@
 
 var guessesLeft = 10;
-document.getElementById("guess-Remaining").innerHTML = guessesLeft;
 var losses = 0;
 var wins = 0;
-var previousGuesses = [];
 var goodGuess=false;
+var previousGuesses = [];
+
+
+
 
 /*Create Array of possible words, have the computer choose one at random.*/
-var wordsArray = ["flyleaf", "eagles", "killers"]; 
+var wordsArray = ["dishonored", "darksouls", "halo", "warcraft","finalfantasyseven"]; 
 var randomWord = wordsArray[Math.floor(Math.random() * wordsArray.length)];
 console.log(randomWord);
-var previousGuesses = [];
 var answerArray=[];
+
+var reset = function() {
+	guessesLeft = 10;
+	previousGuesses = [];
+	wordsArray = ["dishonored", "darksouls", "halo", "warcraft", "finalfantasyseven"]; 
+	randomWord = wordsArray[Math.floor(Math.random() * wordsArray.length)];
+	console.log(randomWord);
+	answerArray = []
+	console.log("reset is running");
+	for (var i=0; i < randomWord.length ; i++) {
+	answerArray[i]= " _ ";
+		}
+		console.log(answerArray);
+
+		document.getElementById("wordSpace").innerHTML = answerArray.join(" ");
+		console.log(answerArray);
+	if (randomWord == "halo") {
+	haloAudio.play(haloAudio);
+	console.log("halo audio should be running");
+} else { haloAudio.pause(haloAudio);
+}
+
+if (randomWord == "darksouls") {
+	soulsAudio.play(soulsAudio);
+	console.log("souls audio should be running");
+} else { soulsAudio.pause(soulsAudio);
+}
+
+if (randomWord == "dishonored") {
+	dishonoredAudio.play(dishonoredAudio);
+	console.log("Dishonored audio should be running");
+} else { dishonoredAudio.pause(dishonoredAudio);
+}
+
+if (randomWord == "warcraft") {
+	warcraftAudio.play(warcraftAudio);
+	console.log("warcraft audio should be running");
+} else { warcraftAudio.pause(warcraftAudio);
+}
+
+if (randomWord == "finalfantasyseven") {
+	ff7Audio.play(ff7Audio);
+	console.log("ff7 audio should be running");
+} else { ff7Audio.pause(ff7Audio)
+}
+
+
+	
+}
+
+
+
+document.getElementById("guess-Remaining").innerHTML = "Guesses Remaining: " + guessesLeft;
+document.getElementById("winCounter").innerHTML = "Wins " + wins;
+document.getElementById("lossCounter").innerHTML = "Losses: " + losses;
+
 
 
 
@@ -29,84 +86,133 @@ console.log(answerArray);
 /*Users start the game by the ".onkeyup" event.  Created a function to store the user's 
 key choice and then, if the key choice is correct, display so in the console. Console
 part mainly done for testing/understanding purposes. */
-document.onkeyup = function(event) {
+document.onkeyup = function theGame(event) {
 	var userGuess = event.key;
+	document.getElementById("nice").innerHTML = " ";
+	document.getElementById("again").innerHTML = " ";
 
 	
-		/*if (userGuess !== previousGuesses) {
-			previousGuesses = previousGuesses + userGuess;
-			console.log(previousGuesses);
-		}	else {
-		
-	 		}*/ 
-      for (var i=0; i < randomWord.length ; i++) {
-    if (userGuess[i] === randomWord[i]) {
-      answerArray[i] = userGuess;
-    } else { }
-  }
-	 
+	
+    for (var i=0; i < randomWord.length ; i++) {
+  	  if (userGuess[i] === randomWord[i]) {
+    	  answerArray[i] = userGuess;
+    	} 	else { }
+  	}
 
-
-
-   for(var i = 0; i < randomWord.length; i++) {
-            if(randomWord[i] === userGuess) {
-                answerArray[i] = userGuess;
-                goodGuess = true;
-            }
-        }//end for loop
-
-          if (goodGuess === false) {
-
-          }
-
-for(var i = 0; i < randomWord.length; i++) {
+/*If userGuess is right, then set it equal to the randomWord. Then, have the character of the corrct letter in 
+answerArray be set to userGuess and set goodGuess = to true.  This will make sure the next section doesn't happen.*/
+	for(var i = 0; i < randomWord.length; i++) {
             if(randomWord[i] === userGuess) {
                 answerArray[i] = userGuess;
                 goodGuess = true;
                 console.log(goodGuess);
             }
-        }//end for loop
+        }
+/*If the userGuess is false, then subtract  one from the guessesLeft array.  Make sure to get goodGuess back to false
+outside of the if statement so that the loops still work.*/
 
         if(goodGuess === false) {
             console.log(goodGuess);
+            previousGuesses = " " + previousGuesses + " " + userGuess;
+            console.log(previousGuesses);
             document.getElementById('guess-Remaining').innerHTML = "Guesses Remaining: " + --guessesLeft;
+            var guessDisplayJs = document.getElementById('guessDisplay').innerHTML = previousGuesses;
         }
         goodGuess = false;
 
 
-			
-	for (var i=0; i < randomWord.length; i++) {
 
-		
-		if (userGuess == randomWord[i]) {
-				isRight = true
-				console.log("You got the letter " + randomWord[i]);	
-		} else  {	}
+/*Just some fun interactions for the user while playing*/
+
+         if(wins == 4){
+            alert("You're a Gaming Legend!");
+          }
+          if(losses == 4){
+            alert("YOU LOSE");
+          }
+/*end of interactions*/
+
 
 
     document.getElementById("wordSpace").innerHTML = answerArray.join(" ");
-	}
 
  /* keep track of letters remaining to be guess*/
         var lettersRemaining = randomWord.length;
         //go through loop to count the remaining letters not guessed
         for(var i = 0; i < randomWord.length; i++) {
-            if(answerArray[i] !== '_'){
+            if(answerArray[i] !== ' _ '){
+            	console.log(answerArray);
                 lettersRemaining -= 1;
             }
-        }//end for loop
+        }
         console.log(lettersRemaining);
 
         //if statement that shows a winning message when the user guesses the correct word
-        //showsElement() is also activated
+        //showsElement() and reset is also activated
+
         if(lettersRemaining == 0){
-            console.log("NICE!, You guessed the word!");
+
+            document.getElementById("nice").innerHTML = "NICE!! You know your stuff!" + "<br><br>" + "Click any key to play again!";
             winCounter.innerHTML = "Wins: " + ++wins;
-            /*showButtonElement()*/;
+            reset();
           }
+         if(guessesLeft == 0){
+
+            document.getElementById("again").innerHTML = "Uh oh... your nerd level is too low." + "<br><br>" + "Click any key to play again!";
+            lossCounter.innerHTML = "Losses " + ++losses;
+            reset();
+          }
+
+
 };
+var mainAudio = new Audio('assets/mp3/zelda-audio.mp3');
+var haloAudio = new Audio('assets/mp3/halo-audio.mp3');
+var soulsAudio = new Audio('assets/mp3/souls-audio.mp3');
+var dishonoredAudio = new Audio('assets/mp3/dishonored-audio.mp3');
+var warcraftAudio = new Audio('assets/mp3/warcraft-audio.mp3');
+var ff7Audio = new Audio('assets/mp3/ff7-audio.mp3');
+
+if (randomWord == "halo") {
+	haloAudio.play(haloAudio);
+	console.log("halo audio should be running");
+} else { 
+}
+
+if (randomWord == "darksouls") {
+	soulsAudio.play(soulsAudio);
+	console.log("souls audio should be running");
+} else { 
+}
+
+if (randomWord == "dishonored") {
+	dishonoredAudio.play(dishonoredAudio);
+	console.log("Dishonored audio should be running");
+} else { 
+}
+
+if (randomWord == "warcraft") {
+	warcraftAudio.play(warcraftAudio);
+	console.log("warcraft audio should be running");
+} else { 
+}
+
+if (randomWord == "finalfantasyseven") {
+	ff7Audio.play(ff7Audio);
+	console.log("ff7 audio should be running");
+} else { 
+}
 
 
+
+
+
+
+	/*for (var i=0; i < randomWord.length; i++) {
+
+		
+		if (userGuess == randomWord[i]) {
+				console.log("You got the letter " + randomWord[i]);	
+		} else  {	}*/
 
 
 
